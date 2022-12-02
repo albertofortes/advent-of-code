@@ -1,8 +1,8 @@
 const fs = require('fs')
+const path = require('path')
 
 // A for Rock, B for Paper, and C for Scissors. 
-
-const data = fs.readFileSync('input.txt', {encoding: 'utf8'})
+const data = fs.readFileSync(path.join(__dirname, 'input.txt'), {encoding: 'utf8'})
   .split('\n')
   .map(round => round.replace(/\s/g, ""))
 
@@ -199,16 +199,16 @@ const chooseHand = round => {
  * 1st column (round[0]) what your opponent is going to play
  * 2nd column (round[1]) what you should play in response
  */
-const totalScore = data.reduce((accumulator, round) => parseInt(accumulator + calculateRoundScore(round)), [0])
+const totalScore = data => data.reduce((accumulator, round) => parseInt(accumulator + calculateRoundScore(round)), [0])
 
 /**
  * 1st column (round[0]) what your opponent is going to play
  * 2nd column (round[1]) what you should play in response
  */
-const totalScoreInresponse = data.reduce((accumulator, round) => parseInt(accumulator + chooseHand(round)), [0])
+const totalScoreInresponse = data => data.reduce((accumulator, round) => parseInt(accumulator + chooseHand(round)), [0])
 
-//module.exports = { totalScore, calculateRoundScore };
+module.exports = { totalScore, totalScoreInresponse }
 
 console.log(data)
-console.log(`Part 1: ${totalScore}`)
-console.log(`Part 2: ${totalScoreInresponse}`)
+console.log(`Part 1: ${totalScore(data)}`)
+console.log(`Part 2: ${totalScoreInresponse(data)}`)
