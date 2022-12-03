@@ -20,7 +20,7 @@ const findDuplicateItemsByCompartment = rucksack => {
 
 const sumOfAllDuplicatedItems = rucksacks => rucksacks.reduce((accum, rucksack) => accum + getPriority(findDuplicateItemsByCompartment(rucksack)), 0)
 
-module.exports = { alphabet, getPriority, getItemPosition, findDuplicateItemsByCompartment, sumOfAllDuplicatedItems }
+module.exports = { getPriority, getItemPosition, findDuplicateItemsByCompartment, sumOfAllDuplicatedItems }
 
 
 console.log(data)

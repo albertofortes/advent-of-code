@@ -1,4 +1,4 @@
-const { alphabet, getPriority, getItemPosition, findDuplicateItemsByCompartment, sumOfAllDuplicatedItems } = require("./puzzle-03")
+const { getPriority, getItemPosition, findDuplicateItemsByCompartment, sumOfAllDuplicatedItems } = require("./puzzle-03")
 
 const testData = [
   'vJrwpWtwJgWrhcsFMMfFFhFp',
