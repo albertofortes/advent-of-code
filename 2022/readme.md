@@ -31,3 +31,8 @@
 ![Day](https://badgen.net/badge/23/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/24/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/25/%E2%98%86%E2%98%86/gray)
+
+## Tests
+
+I'm using simple Jest tests.
+to launch it type `yarn test` for all days tests or type ``yarn test puzzle-02.test.js` for just puzzle 02 test.

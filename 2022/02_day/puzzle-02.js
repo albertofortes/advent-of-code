@@ -209,6 +209,5 @@ const totalScoreInresponse = data => data.reduce((accumulator, round) => parseIn
 
 module.exports = { totalScore, totalScoreInresponse }
 
-console.log(data)
-console.log(`Part 1: ${totalScore(data)}`)
-console.log(`Part 2: ${totalScoreInresponse(data)}`)
+//console.log(`Part 1: ${totalScore(data)}`)
+//console.log(`Part 2: ${totalScoreInresponse(data)}`)
