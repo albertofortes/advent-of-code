@@ -1,4 +1,4 @@
-const { getPriority, getItemPosition, findDuplicateItemsByCompartment, sumOfAllDuplicatedItems } = require("./puzzle-03")
+const { getPriority, getItemPosition, findDuplicateItemsByCompartment, sumOfAllDuplicatedItems, makeGroups, sumOfAllGroupsPriorities } = require("./puzzle-03")
 
 const testData = [
   'vJrwpWtwJgWrhcsFMMfFFhFp',
@@ -36,7 +36,15 @@ describe('Day 3', () => {
     expect(getPriority(findDuplicateItemsByCompartment(testData[5]))).toBe(19)
   })
 
-  it('And the priorities of those item types is', () => {
+  it('Make groups', () => {
+    expect(makeGroups(testData).length).toBe(2)
+  })
+
+  it('Part 1: And the priorities of those item types is', () => {
     expect(sumOfAllDuplicatedItems(testData)).toBe(157)
+  })
+
+  it('part 2: And the sum of duplicated badges in each group is', () => {
+    expect(sumOfAllGroupsPriorities(testData)).toBe(70)
   })
 })
