@@ -2,4 +2,5 @@
 .DS_Store
 
 # dependencies
-node_modules/*
+/node_modules
+/2022/node_modules
