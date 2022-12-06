@@ -42,6 +42,13 @@ for(let i=0; i < instructions.length; i++) {
   move(stacks, extractInstruction(instructions[i]))
 }
 
-
-console.log('END: ', stacks)
-module.exports = { move, extractInstruction }
+const getLatest = stacks => {
+  let arr = []
+  const result = stacks.map(stack => {    
+    arr.push(stack.pop())
+  })
+  return arr.join('').toString()
+}
+//console.log('END: ', stacks)
+console.log('Part 1: ', getLatest(stacks))
+module.exports = { move, extractInstruction, getLatest }
