@@ -18,6 +18,8 @@ const stacks = [
   ["L", "G", "B", "W"],
 ];
 
+console.log('parsed data: ', stacks)
+
 const instructions = data[1].split("\n")
 
 const extractInstruction = row => {
@@ -37,9 +39,22 @@ const move = (pilas, instruction) => {
   }
 }
 
+/* PART 2 s failed!! this is not working :(*/
+const moveAsBlock = (pilas, instruction) => {
+  const {quantity, from, to} = instruction
+  const moving = pilas[from].splice(pilas[from].length - quantity, quantity);
+  pilas[to] = pilas[to].concat(moving);
+}
 
-for(let i=0; i < instructions.length; i++) {
-  move(stacks, extractInstruction(instructions[i]))
+function execute(stacks, instructions, isPartOne) {
+  for(let i=0; i < instructions.length; i++) {
+    if(isPartOne) {
+      move(stacks, extractInstruction(instructions[i]))
+    } else {
+      moveAsBlock(stacks, extractInstruction(instructions[i]))
+    }
+  }
+  return stacks
 }
 
 const getLatest = stacks => {
@@ -49,6 +64,7 @@ const getLatest = stacks => {
   })
   return arr.join('').toString()
 }
-//console.log('END: ', stacks)
-console.log('Part 1: ', getLatest(stacks))
-module.exports = { move, extractInstruction, getLatest }
+console.log('END: ', stacks)
+console.log('Part 1: ', getLatest(execute(stacks, instructions, true)))
+// FAILING! console.log('Part 2: ', getLatest(execute(stacks, instructions, false)))
+module.exports = { move }

@@ -1,4 +1,4 @@
-const { move, extractInstruction } = require("./puzzle-05")
+const { move } = require("./puzzle-05")
 
 const instructions = [
   'move 1 from 2 to 1',
@@ -16,6 +16,9 @@ const stacks = [
 
 describe('Day 5', () => {
   it('Part 1', () => {
-    expect(move(stacks, extractInstruction(instructions[0]))).toBe([ [ 'Z', 'N', 'D' ], [ 'M', 'C' ], [ 'P' ] ])
-  });
+    expect(move(stacks, { quantity: 1, from: 1, to: 0 })).toBe([ [ 'Z', 'N', 'D' ], [ 'M', 'C' ], [ 'P' ] ])
+  })
+/*
+  it('Part 2', () => {
+  })*/
 });
