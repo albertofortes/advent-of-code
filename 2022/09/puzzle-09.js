@@ -93,16 +93,23 @@ const move = instruction => {
   }
 }
 
-
-for(let i = 0; i < moves.length; i++) {
-  move(moves[i])
+/**
+ * Part 1
+ * 
+ * @param {*} moves 
+ * @returns 
+ */
+function tailVisitedPoints(moves) {
+  for(let i = 0; i < moves.length; i++) {
+    move(moves[i])
+  }
+  //console.log('TAIL: ', tailPoints.length)
+  const visited = tailPoints.filter((v,i,a)=>a.findIndex(v2=>['x','y'].every(k=>v2[k] ===v[k]))===i)
+  return visited.length
 }
-
-const visited = tailPoints.filter((v,i,a)=>a.findIndex(v2=>['x','y'].every(k=>v2[k] ===v[k]))===i)
-
 
 module.exports = { headPoints, tailPoints, move } 
 
-console.log('TAIL: ', tailPoints.length)
-console.log('Visited: ', visited.length)
+
+console.log('Part 1: ', tailVisitedPoints(moves))
 
